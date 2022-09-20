@@ -37,7 +37,7 @@ class AdminProfileController extends Controller
             $ext = $request->file('photo')->extension();
             $final_name = 'admin'  .  '.'   .  $ext;
             $request->file('photo')->move(public_path('uploads/'), $final_name);
-            $admin_data->photo=$final_name;
+            $admin_data->photo = $final_name;
         }
 
         $admin_data->name = $request->name;

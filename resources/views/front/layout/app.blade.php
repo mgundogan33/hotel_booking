@@ -3,18 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
+
         <meta name="description" content="">
-        <title>Hotel Website</title>        
-		
+        <title>Hotel Website</title>
+
         <link rel="icon" type="image/png" href="{{ asset('uploads/favicon.png') }}">
 
         @include('front.layout.styles')
-        
+
         @include('front.layout.scripts')
 
         <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500&display=swap" rel="stylesheet">
-        
+
         <!-- Google Analytics -->
         <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84213520-6"></script>
         <script>
@@ -26,7 +26,7 @@
 
     </head>
     <body>
-        
+
         <div class="top">
             <div class="container">
                 <div class="row">
@@ -57,7 +57,7 @@
                     <img src="uploads/logo.png" alt="">
                 </a>
             </div>
-        
+
             <!-- Menu For Desktop Device -->
             <div class="main-nav">
                 <div class="container">
@@ -66,7 +66,7 @@
                             <img src="uploads/logo.png" alt="">
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto">        
+                            <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
                                     <a href="{{ route('home') }}" class="nav-link">Anasayfa</a>
                                 </li>
@@ -105,7 +105,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="blog.html" class="nav-link">Blog</a>
+                                    <a href="{{route('blog')}}" class="nav-link">Blog</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="contact.html" class="nav-link">Contact</a>
@@ -144,8 +144,8 @@
                             </ul>
                         </div>
                     </div>
-                    
-                    
+
+
                     <div class="col-md-3">
                         <div class="item">
                             <h2 class="heading">Contact</h2>
@@ -188,7 +188,7 @@
                         <div class="item">
                             <h2 class="heading">Newsletter</h2>
                             <p>
-                                In order to get the latest news and other great items, please subscribe us here: 
+                                In order to get the latest news and other great items, please subscribe us here:
                             </p>
                             <form action="" method="post">
                                 <div class="form-group">
@@ -208,11 +208,11 @@
         <div class="copyright">
             Copyright 2022, ArefinDev. All Rights Reserved.
         </div>
-     
+
         <div class="scroll-top">
             <i class="fa fa-angle-up"></i>
         </div>
-		
+
 		@include('front.layout.scripts_footer')
 
    </body>

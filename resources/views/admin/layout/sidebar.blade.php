@@ -31,7 +31,9 @@
             <li class=""><a class="nav-link" href="{{ route('admin.testimonial_view') }}"><i
                         class="fa fa-hand-o-right"></i>
                     <span>Referans</span></a></li>
-
+            <li class=""><a class="nav-link" href="{{ route('admin.post_view') }}"><i
+                        class="fa fa-hand-o-right"></i>
+                    <span>Gönderi</span></a></li>
         </ul>
     </aside>
 </div>
