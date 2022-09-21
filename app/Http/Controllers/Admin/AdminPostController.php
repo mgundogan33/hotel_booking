@@ -37,7 +37,7 @@ class AdminPostController extends Controller
         $obj->content = $request->content;
         $obj->total_view = 1;
         $obj->save();
-        return redirect()->back()->with('success', 'İşlem Başarıyla Kaydeildi ');
+        return redirect()->back()->with('success', 'İşlem Başarıyla Kaydedildi ');
     }
     public function edit($id)
     {

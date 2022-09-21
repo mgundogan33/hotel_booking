@@ -36,7 +36,7 @@ class AdminTestmonialController extends Controller
         $obj->designation = $request->designation;
         $obj->comment = $request->comment;
         $obj->save();
-        return redirect()->back()->with('success', 'İşlem Başarıyla Kaydeildi ');
+        return redirect()->back()->with('success', 'İşlem Başarıyla Kaydedildi ');
     }
     public function edit($id)
     {

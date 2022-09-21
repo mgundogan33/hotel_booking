@@ -94,10 +94,10 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="javascript:void;" class="nav-link dropdown-toggle">Gallery</a>
+                                    <a href="javascript:void;" class="nav-link dropdown-toggle">Galeri</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="photo-gallery.html" class="nav-link">Photo Gallery</a>
+                                            <a href="{{route('photo_galery')}}" class="nav-link">Foto Galeri</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="video-gallery.html" class="nav-link">Video Gallery</a>

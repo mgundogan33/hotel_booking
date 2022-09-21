@@ -29,7 +29,7 @@ class AdminFeatureController extends Controller
         $obj->heading = $request->heading;
         $obj->text = $request->text;
         $obj->save();
-        return redirect()->back()->with('success', 'Feature Başarıyla Kaydeildi ');
+        return redirect()->back()->with('success', 'Feature Başarıyla Kaydedildi ');
     }
     public function edit($id)
     {

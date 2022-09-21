@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Photo;
 use Illuminate\Http\Request;
-use App\Models\Slide;
 
-class AdminSlideController extends Controller
+class AdminPhotoController extends Controller
 {
     public function index()
     {
-        $slides = Slide::all();
-        return view('admin.slide_view', compact('slides'));
+        $photos = Photo::all();
+        return view('admin.photo_view', compact('photos'));
     }
     public function add()
     {
-        return view('admin.slide_add');
+        return view('admin.photo_add');
     }
     public function store(Request $request)
     {
@@ -27,25 +27,22 @@ class AdminSlideController extends Controller
         $ext = $request->file('photo')->extension();
         $final_name = time()  .  '.'   .  $ext;
         $request->file('photo')->move(public_path('uploads/'), $final_name);
-        $obj = new Slide();
+        $obj = new Photo();
 
         $obj->photo = $final_name;
-        $obj->heading = $request->heading;
-        $obj->text = $request->text;
-        $obj->button_text = $request->button_text;
-        $obj->button_url = $request->button_url;
+        $obj->caption = $request->caption;
         $obj->save();
-        return redirect()->back()->with('success', 'Slayt Başarıyla Kaydedildi ');
+        return redirect()->back()->with('success', 'Fotoğraf Başarıyla Kaydedildi ');
     }
     public function edit($id)
     {
-        $slide_data = Slide::where('id', $id)->first();
+        $photo_data = Photo::where('id', $id)->first();
 
-        return view('admin.slide_edit', compact('slide_data'));
+        return view('admin.photo_edit', compact('photo_data'));
     }
     public function update(Request $request, $id)
     {
-        $obj = Slide::where('id', $id)->first();
+        $obj = Photo::where('id', $id)->first();
 
         if ($request->hasFile('photo')) {
             $request->validate([
@@ -57,19 +54,16 @@ class AdminSlideController extends Controller
             $request->file('photo')->move(public_path('uploads/'), $final_name);
             $obj->photo = $final_name;
         }
-        $obj->heading = $request->heading;
-        $obj->text = $request->text;
-        $obj->button_text = $request->button_text;
-        $obj->button_url = $request->button_url;
+        $obj->caption = $request->caption;
         $obj->update();
 
         return redirect()->back()->with('success', 'Başarıyla Güncellendi');
     }
     public function delete($id)
     {
-        $single_data = Slide::where('id', $id)->first();
-        unlink(public_path('uploads/' . $single_data->photo));
-        $single_data->delete();
-        return redirect()->back()->with('error', 'Slayt Başarıyla Silindi');
+        $photo_data = Photo::where('id', $id)->first();
+        unlink(public_path('uploads/' . $photo_data->photo));
+        $photo_data->delete();
+        return redirect()->back()->with('error', 'Fotoğraf Başarıyla Silindi');
     }
 }
