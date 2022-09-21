@@ -100,7 +100,7 @@
                                             <a href="{{route('photo_galery')}}" class="nav-link">Foto Galeri</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="video-gallery.html" class="nav-link">Video Gallery</a>
+                                            <a href="{{route('video_galery')}}" class="nav-link">Video Galeri</a>
                                         </li>
                                     </ul>
                                 </li>
