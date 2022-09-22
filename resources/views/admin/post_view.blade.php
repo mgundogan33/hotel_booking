@@ -1,8 +1,8 @@
 @extends('admin.layout.app')
-@section('heading', 'Gönderi')
+@section('heading', 'Blog')
 
 @section('right_top_button')
-    <a href="{{ route('admin.post_add') }}" class="btn btn-primary"><i class="fa fa-plus"></i>Gönderi Oluştur</a>
+    <a href="{{ route('admin.post_add') }}" class="btn btn-primary"><i class="fa fa-plus"></i>Blog Oluştur</a>
 @endsection
 
 
