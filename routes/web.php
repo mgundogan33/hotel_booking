@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\PhotoController;
 use App\Http\Controllers\Front\VideoController;
+use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminLoginController;
@@ -24,6 +26,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/post/{id}', [BlogController::class, 'single_post'])->name('post');
 Route::get('/photo-galery', [PhotoController::class, 'index'])->name('photo_galery');
 Route::get('/video-galery', [VideoController::class, 'index'])->name('video_galery');
+Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 
 
 
@@ -80,3 +83,10 @@ Route::post('/admin/video/store', [AdminVideoController::class, 'store'])->name(
 Route::get('/admin/video/edit/{id}', [AdminVideoController::class, 'edit'])->name('admin.video_edit')->middleware('admin:admin');
 Route::post('/admin/video/update/{id}', [AdminVideoController::class, 'update'])->name('admin.video_update')->middleware('admin:admin');
 Route::get('/admin/video/delete/{id}', [AdminVideoController::class, 'delete'])->name('admin.video_delete')->middleware('admin:admin');
+
+Route::get('/admin/faq/view', [AdminFaqController::class, 'index'])->name('admin.faq_view')->middleware('admin:admin');
+Route::get('/admin/faq/add', [AdminFaqController::class, 'add'])->name('admin.faq_add')->middleware('admin:admin');
+Route::post('/admin/faq/store', [AdminFaqController::class, 'store'])->name('admin.faq_store')->middleware('admin:admin');
+Route::get('/admin/faq/edit/{id}', [AdminFaqController::class, 'edit'])->name('admin.faq_edit')->middleware('admin:admin');
+Route::post('/admin/faq/update/{id}', [AdminFaqController::class, 'update'])->name('admin.faq_update')->middleware('admin:admin');
+Route::get('/admin/faq/delete/{id}', [AdminFaqController::class, 'delete'])->name('admin.faq_delete')->middleware('admin:admin');

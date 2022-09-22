@@ -40,6 +40,9 @@
             <li class=""><a class="nav-link" href="{{ route('admin.video_view') }}"><i
                         class="fa fa-hand-o-right"></i>
                     <span>Video Galeri</span></a></li>
+            <li class=""><a class="nav-link" href="{{ route('admin.faq_view') }}"><i
+                        class="fa fa-hand-o-right"></i>
+                    <span>FAQs</span></a></li>
         </ul>
     </aside>
 </div>
