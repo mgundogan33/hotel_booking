@@ -24,4 +24,20 @@ class AdminPageController extends Controller
 
         return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
     }
+
+    public function terms()
+    {
+        $terms_data = Page::where('id', 1)->first();
+        return view('admin.page_terms', compact('terms_data'));
+    }
+    public function terms_update(Request $request)
+    {
+        $obj = Page::where('id', 1)->first();
+        $obj->terms_heading = $request->terms_heading;
+        $obj->terms_content = $request->terms_content;
+        $obj->terms_status = $request->terms_status;
+        $obj->update();
+
+        return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
+    }
 }

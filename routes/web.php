@@ -6,6 +6,7 @@ use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\PhotoController;
+use App\Http\Controllers\Front\TermsController;
 use App\Http\Controllers\Front\VideoController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -28,6 +29,7 @@ Route::get('/post/{id}', [BlogController::class, 'single_post'])->name('post');
 Route::get('/photo-galery', [PhotoController::class, 'index'])->name('photo_galery');
 Route::get('/video-galery', [VideoController::class, 'index'])->name('video_galery');
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+Route::get('/terms-and-conditions', [TermsController::class, 'index'])->name('terms');
 
 
 
@@ -94,3 +96,6 @@ Route::get('/admin/faq/delete/{id}', [AdminFaqController::class, 'delete'])->nam
 
 Route::get('/admin/page/about', [AdminPageController::class, 'about'])->name('admin.page_about')->middleware('admin:admin');
 Route::post('/admin/page/about/update', [AdminPageController::class, 'about_update'])->name('admin.page_about_update')->middleware('admin:admin');
+
+Route::get('/admin/page/terms', [AdminPageController::class, 'terms'])->name('admin.page_terms')->middleware('admin:admin');
+Route::post('/admin/page/terms/update', [AdminPageController::class, 'terms_update'])->name('admin.page_terms_update')->middleware('admin:admin');

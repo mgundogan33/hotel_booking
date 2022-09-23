@@ -145,8 +145,10 @@
                     <div class="item">
                         <h2 class="heading">Useful Links</h2>
                         <ul class="useful-links">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="terms.html">Terms and Conditions</a></li>
+                            <li><a href="{{route('home')}}">Anasayfa</a></li>
+                            @if ($global_page_data->terms_status == 1)
+                                <li><a href="{{ route('terms') }}">{{$global_page_data->terms_heading}}</a></li>
+                            @endif
                             <li><a href="privacy.html">Privacy Policy</a></li>
                             <li><a href="{{ route('faq') }}">FAQ</a></li>
                         </ul>
@@ -214,7 +216,7 @@
     </div>
 
     <div class="copyright">
-        Copyright 2022, ArefinDev. All Rights Reserved.
+        Copyright 2022, All Rights Reserved.
     </div>
 
     <div class="scroll-top">
