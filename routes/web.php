@@ -8,6 +8,7 @@ use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\PhotoController;
 use App\Http\Controllers\Front\TermsController;
 use App\Http\Controllers\Front\VideoController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\PrivacyController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -32,6 +33,8 @@ Route::get('/video-galery', [VideoController::class, 'index'])->name('video_gale
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::get('/terms-and-conditions', [TermsController::class, 'index'])->name('terms');
 Route::get('/privacy-policy', [PrivacyController::class, 'index'])->name('privacy');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact/send-email', [ContactController::class, 'send_email'])->name('contact_send_email');
 
 
 
@@ -104,4 +107,7 @@ Route::post('/admin/page/terms/update', [AdminPageController::class, 'terms_upda
 
 Route::get('/admin/page/privacy', [AdminPageController::class, 'privacy'])->name('admin.page_privacy')->middleware('admin:admin');
 Route::post('/admin/page/privacy/update', [AdminPageController::class, 'privacy_update'])->name('admin.page_privacy_update')->middleware('admin:admin');
+
+Route::get('/admin/page/contact', [AdminPageController::class, 'contact'])->name('admin.page_contact')->middleware('admin:admin');
+Route::post('/admin/page/contact/update', [AdminPageController::class, 'contact_update'])->name('admin.page_contact_update')->middleware('admin:admin');
 

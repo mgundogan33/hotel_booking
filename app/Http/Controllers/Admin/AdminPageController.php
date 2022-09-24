@@ -55,4 +55,19 @@ class AdminPageController extends Controller
 
         return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
     }
+    public function contact()
+    {
+        $contact_data = Page::where('id', 1)->first();
+        return view('admin.page_contact', compact('contact_data'));
+    }
+    public function contact_update(Request $request)
+    {
+        $obj = Page::where('id', 1)->first();
+        $obj->contact_heading = $request->contact_heading;
+        $obj->contact_map = $request->contact_map;
+        $obj->contact_status = $request->contact_status;
+        $obj->update();
+
+        return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
+    }
 }

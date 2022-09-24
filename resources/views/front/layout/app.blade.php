@@ -115,9 +115,13 @@
                             <li class="nav-item">
                                 <a href="{{ route('blog') }}" class="nav-link">Blog</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="contact.html" class="nav-link">Contact</a>
-                            </li>
+                            @if ($global_page_data->contact_status == 1)
+                                <li class="nav-item">
+                                    <a href="{{ route('contact') }}"
+                                        class="nav-link">{{ $global_page_data->contact_heading }}</a>
+                                </li>
+                            @endif
+
                         </ul>
                     </div>
                 </nav>
@@ -134,10 +138,12 @@
                     <div class="item">
                         <h2 class="heading">Site Links</h2>
                         <ul class="useful-links">
-                            <li><a href="{{route('photo_galery')}}">Foto Galeri</a></li>
-                            <li><a href="{{route('video_galery')}}">Video Galeri</a></li>
-                            <li><a href="{{route('blog')}}">Blog</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{ route('photo_galery') }}">Foto Galeri</a></li>
+                            <li><a href="{{ route('video_galery') }}">Video Galeri</a></li>
+                            <li><a href="{{ route('blog') }}">Blog</a></li>
+                            @if ($global_page_data->contact_status == 1)
+                            <li><a href="{{ route('contact') }}">{{ $global_page_data->contact_heading }}</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -145,12 +151,13 @@
                     <div class="item">
                         <h2 class="heading">Useful Links</h2>
                         <ul class="useful-links">
-                            <li><a href="{{route('home')}}">Anasayfa</a></li>
+                            <li><a href="{{ route('home') }}">Anasayfa</a></li>
                             @if ($global_page_data->terms_status == 1)
-                                <li><a href="{{ route('terms') }}">{{$global_page_data->terms_heading}}</a></li>
+                                <li><a href="{{ route('terms') }}">{{ $global_page_data->terms_heading }}</a></li>
                             @endif
                             @if ($global_page_data->privacy_status == 1)
-                                <li><a href="{{ route('privacy') }}">{{$global_page_data->privacy_heading}}</a></li>
+                                <li><a href="{{ route('privacy') }}">{{ $global_page_data->privacy_heading }}</a>
+                                </li>
                             @endif
                             <li><a href="{{ route('faq') }}">FAQ</a></li>
                         </ul>

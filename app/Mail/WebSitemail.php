@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+
 class WebSitemail extends Mailable
 {
     use Queueable, SerializesModels;
@@ -32,7 +33,7 @@ class WebSitemail extends Mailable
     public function build()
     {
         return $this->markdown('emails.email')->with([
-            'subject'=>$this->subject
+            'subject' => $this->subject
         ]);
     }
 }
