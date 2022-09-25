@@ -111,3 +111,8 @@ Route::post('/admin/page/privacy/update', [AdminPageController::class, 'privacy_
 Route::get('/admin/page/contact', [AdminPageController::class, 'contact'])->name('admin.page_contact')->middleware('admin:admin');
 Route::post('/admin/page/contact/update', [AdminPageController::class, 'contact_update'])->name('admin.page_contact_update')->middleware('admin:admin');
 
+Route::get('/admin/page/photo-galery', [AdminPageController::class, 'photo_galery'])->name('admin.page_photo_galery')->middleware('admin:admin');
+Route::post('/admin/page/photo-galery/update', [AdminPageController::class, 'photo_galery_update'])->name('admin.page_photo_galery_update')->middleware('admin:admin');
+
+Route::get('/admin/page/video-galery', [AdminPageController::class, 'video_galery'])->name('admin.page_video_galery')->middleware('admin:admin');
+Route::post('/admin/page/video-galery/update', [AdminPageController::class, 'video_galery_update'])->name('admin.page_video_galery_update')->middleware('admin:admin');

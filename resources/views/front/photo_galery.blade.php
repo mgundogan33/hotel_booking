@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Foto Galeri</h2>
+                    <h2>{{$global_page_data->photo_galery_heading}}</h2>
                 </div>
             </div>
         </div>

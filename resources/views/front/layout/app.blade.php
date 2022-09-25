@@ -81,6 +81,7 @@
                                         class="nav-link">{{ $global_page_data->about_heading }}</a>
                                 </li>
                             @endif
+
                             <li class="nav-item">
                                 <a href="javascript:void;" class="nav-link dropdown-toggle">Room & Suite</a>
                                 <ul class="dropdown-menu">
@@ -101,17 +102,33 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="javascript:void;" class="nav-link dropdown-toggle">Galeri</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="{{ route('photo_galery') }}" class="nav-link">Foto Galeri</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('video_galery') }}" class="nav-link">Video Galeri</a>
-                                    </li>
-                                </ul>
-                            </li>
+
+
+
+                            @if ($global_page_data->photo_galery_status == 1 ||
+                             $global_page_data->video_galery_status == 1)
+                                <li class="nav-item">
+                                    <a href="javascript:void;" class="nav-link dropdown-toggle">Galeri</a>
+                                    <ul class="dropdown-menu">
+                                        @if ($global_page_data->photo_galery_status == 1)
+                                            <li class="nav-item">
+                                                <a href="{{ route('photo_galery') }}"
+                                                    class="nav-link">{{ $global_page_data->photo_galery_heading }}</a>
+                                            </li>
+                                        @endif
+                                        @if ($global_page_data->video_galery_status == 1)
+                                            <li class="nav-item">
+                                                <a href="{{ route('video_galery') }}"
+                                                    class="nav-link">{{ $global_page_data->video_galery_heading }}</a>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </li>
+                            @endif
+
+
+
+
                             <li class="nav-item">
                                 <a href="{{ route('blog') }}" class="nav-link">Blog</a>
                             </li>
@@ -136,20 +153,30 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="item">
-                        <h2 class="heading">Site Links</h2>
+                        <h2 class="heading">Site Hakkında</h2>
                         <ul class="useful-links">
-                            <li><a href="{{ route('photo_galery') }}">Foto Galeri</a></li>
-                            <li><a href="{{ route('video_galery') }}">Video Galeri</a></li>
+                            @if ($global_page_data->photo_galery_status == 1)
+                                <li><a
+                                        href="{{ route('photo_galery') }}">{{ $global_page_data->photo_galery_heading }}</a>
+                                </li>
+                            @endif
+                            @if ($global_page_data->photo_galery_status == 1)
+                                <li><a
+                                        href="{{ route('video_galery') }}">{{ $global_page_data->video_galery_heading }}</a>
+                                </li>
+                            @endif
+
                             <li><a href="{{ route('blog') }}">Blog</a></li>
+
                             @if ($global_page_data->contact_status == 1)
-                            <li><a href="{{ route('contact') }}">{{ $global_page_data->contact_heading }}</a></li>
+                                <li><a href="{{ route('contact') }}">{{ $global_page_data->contact_heading }}</a></li>
                             @endif
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="item">
-                        <h2 class="heading">Useful Links</h2>
+                        <h2 class="heading">Bize Ulaşın</h2>
                         <ul class="useful-links">
                             <li><a href="{{ route('home') }}">Anasayfa</a></li>
                             @if ($global_page_data->terms_status == 1)
@@ -167,7 +194,7 @@
 
                 <div class="col-md-3">
                     <div class="item">
-                        <h2 class="heading">Contact</h2>
+                        <h2 class="heading">İletişim</h2>
                         <div class="list-item">
                             <div class="left">
                                 <i class="fa fa-map-marker"></i>

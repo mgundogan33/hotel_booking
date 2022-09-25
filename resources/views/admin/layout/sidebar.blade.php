@@ -16,7 +16,11 @@
                 class="nav-item dropdown {{ Request::is('admin/page/about') ||
                 Request::is('admin/page/terms') ||
                 Request::is('admin/page/privacy') ||
-                Request::is('admin/page/contact') ? 'active' : '' }}">
+                Request::is('admin/page/contact') ||
+                Request::is('admin/page/photo-galery') ||
+                Request::is('admin/page/video-galery')
+                    ? 'active'
+                    : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
                         class="fa fa-hand-o-right"></i><span>Sayfalar</span></a>
                 <ul class="dropdown-menu">
@@ -30,6 +34,13 @@
                             Politikası</a></li>
                     <li class="{{ Request::is('admin/page/contact') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.page_contact') }}"><i class="fa fa-angle-right"></i>Bize Ulaşın </a>
+                    </li>
+                    <li class="{{ Request::is('admin/page/photo-galery') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_photo_galery') }}"><i class="fa fa-angle-right"></i>Foto
+                            Galeri</a>
+                    <li class="{{ Request::is('admin/page/video-galery') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_video_galery') }}"><i class="fa fa-angle-right"></i>Video
+                            Galeri</a>
                     </li>
             </li>
         </ul>

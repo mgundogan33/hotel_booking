@@ -70,4 +70,32 @@ class AdminPageController extends Controller
 
         return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
     }
+    public function photo_galery()
+    {
+        $page_data = Page::where('id', 1)->first();
+        return view('admin.page_photo_galery', compact('page_data'));
+    }
+    public function photo_galery_update(Request $request)
+    {
+        $obj = Page::where('id', 1)->first();
+        $obj->photo_galery_heading = $request->photo_galery_heading;
+        $obj->photo_galery_status = $request->photo_galery_status;
+        $obj->update();
+
+        return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
+    }
+    public function video_galery()
+    {
+        $page_data = Page::where('id', 1)->first();
+        return view('admin.page_video_galery', compact('page_data'));
+    }
+    public function video_galery_update(Request $request)
+    {
+        $obj = Page::where('id', 1)->first();
+        $obj->video_galery_heading = $request->video_galery_heading;
+        $obj->video_galery_status = $request->video_galery_status;
+        $obj->update();
+
+        return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
+    }
 }

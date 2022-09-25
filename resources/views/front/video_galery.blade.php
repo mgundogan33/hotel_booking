@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Video Galeri</h2>
+                    <h2>{{ $global_page_data->video_galery_heading }}</h2>
                 </div>
             </div>
         </div>
@@ -18,10 +18,10 @@
                     @foreach ($video_all as $item)
                         <div class="col-lg-3 col-md-4">
                             <div class="video-thumb">
-                                <img src="http://img.youtube.com/vi/{{$item->video_id}}/0.jpg" alt="">
+                                <img src="http://img.youtube.com/vi/{{ $item->video_id }}/0.jpg" alt="">
                                 <div class="bg"></div>
                                 <div class="icon">
-                                    <a href="http://www.youtube.com/watch?v={{$item->video_id}}" class="video-button"><i
+                                    <a href="http://www.youtube.com/watch?v={{ $item->video_id }}" class="video-button"><i
                                             class="fa fa-play"></i></a>
                                 </div>
                             </div>
