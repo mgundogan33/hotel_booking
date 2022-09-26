@@ -98,4 +98,18 @@ class AdminPageController extends Controller
 
         return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
     }
+    public function faq()
+    {
+        $page_data = Page::where('id', 1)->first();
+        return view('admin.page_faq', compact('page_data'));
+    }
+    public function faq_update(Request $request)
+    {
+        $obj = Page::where('id', 1)->first();
+        $obj->faq_heading = $request->faq_heading;
+        $obj->faq_status = $request->faq_status;
+        $obj->update();
+
+        return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
+    }
 }

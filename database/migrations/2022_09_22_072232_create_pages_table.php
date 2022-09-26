@@ -31,6 +31,8 @@ return new class extends Migration
             $table->integer('photo_galery_status');
             $table->text('video_galery_heading');
             $table->integer('video_galery_status');
+            $table->text('faq_heading');
+            $table->integer('faq_status');
             $table->timestamps();
         });
     }

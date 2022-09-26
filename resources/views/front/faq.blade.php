@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>FAQ</h2>
+                    <h2>{{ $global_page_data->faq_heading }}</h2>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     <div class="accordion" id="accordionExample">
 
                         @php
-                            $i=0;
+                            $i = 0;
                         @endphp
                         @foreach ($faq_all as $item)
                             @php
