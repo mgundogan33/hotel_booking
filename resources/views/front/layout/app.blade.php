@@ -127,10 +127,13 @@
 
 
 
+                            @if ($global_page_data->blog_status == 1)
+                                <li class="nav-item">
+                                    <a href="{{ route('blog') }}"
+                                        class="nav-link">{{ $global_page_data->blog_heading }}</a>
+                                </li>
+                            @endif
 
-                            <li class="nav-item">
-                                <a href="{{ route('blog') }}" class="nav-link">Blog</a>
-                            </li>
                             @if ($global_page_data->contact_status == 1)
                                 <li class="nav-item">
                                     <a href="{{ route('contact') }}"
@@ -164,8 +167,9 @@
                                         href="{{ route('video_galery') }}">{{ $global_page_data->video_galery_heading }}</a>
                                 </li>
                             @endif
-
-                            <li><a href="{{ route('blog') }}">Blog</a></li>
+                            @if ($global_page_data->blog_status == 1)
+                                <li><a href="{{ route('blog') }}">{{ $global_page_data->blog_heading }}</a></li>
+                            @endif
 
                             @if ($global_page_data->contact_status == 1)
                                 <li><a href="{{ route('contact') }}">{{ $global_page_data->contact_heading }}</a></li>

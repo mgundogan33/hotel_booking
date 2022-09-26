@@ -112,4 +112,18 @@ class AdminPageController extends Controller
 
         return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
     }
+    public function blog()
+    {
+        $page_data = Page::where('id', 1)->first();
+        return view('admin.page_blog', compact('page_data'));
+    }
+    public function blog_update(Request $request)
+    {
+        $obj = Page::where('id', 1)->first();
+        $obj->blog_heading = $request->blog_heading;
+        $obj->blog_status = $request->blog_status;
+        $obj->update();
+
+        return redirect()->back()->with('success', 'İşlem Başarıyla Gerçekleşti');
+    }
 }

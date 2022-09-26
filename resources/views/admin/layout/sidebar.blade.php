@@ -18,8 +18,9 @@
                 Request::is('admin/page/privacy') ||
                 Request::is('admin/page/contact') ||
                 Request::is('admin/page/photo-galery') ||
-                Request::is('admin/page/video-galery')||
-                Request::is('admin/page/faq')
+                Request::is('admin/page/video-galery') ||
+                Request::is('admin/page/faq')||
+                Request::is('admin/page/blog')
                     ? 'active'
                     : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
@@ -44,8 +45,10 @@
                             Galeri</a>
                     </li>
                     <li class="{{ Request::is('admin/page/faq') ? 'active' : '' }}"><a class="nav-link"
-                        href="{{ route('admin.page_faq') }}"><i class="fa fa-angle-right"></i>FAQ</a>
-                </li>
+                            href="{{ route('admin.page_faq') }}"><i class="fa fa-angle-right"></i>FAQ</a>
+                    <li class="{{ Request::is('admin/page/blog') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_blog') }}"><i class="fa fa-angle-right"></i>Blog</a>
+                    </li>
             </li>
         </ul>
         </li>
