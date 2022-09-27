@@ -122,3 +122,18 @@ Route::post('/admin/page/faq/update', [AdminPageController::class, 'faq_update']
 
 Route::get('/admin/page/blog', [AdminPageController::class, 'blog'])->name('admin.page_blog')->middleware('admin:admin');
 Route::post('/admin/page/blog/update', [AdminPageController::class, 'blog_update'])->name('admin.page_blog_update')->middleware('admin:admin');
+
+Route::get('/admin/page/cart', [AdminPageController::class, 'cart'])->name('admin.page_cart')->middleware('admin:admin');
+Route::post('/admin/page/cart/update', [AdminPageController::class, 'cart_update'])->name('admin.page_cart_update')->middleware('admin:admin');
+
+Route::get('/admin/page/checkout', [AdminPageController::class, 'checkout'])->name('admin.page_checkout')->middleware('admin:admin');
+Route::post('/admin/page/checkout/update', [AdminPageController::class, 'checkout_update'])->name('admin.page_checkout_update')->middleware('admin:admin');
+
+Route::get('/admin/page/payment', [AdminPageController::class, 'payment'])->name('admin.page_payment')->middleware('admin:admin');
+Route::post('/admin/page/payment/update', [AdminPageController::class, 'payment_update'])->name('admin.page_payment_update')->middleware('admin:admin');
+
+Route::get('/admin/page/signup', [AdminPageController::class, 'signup'])->name('admin.page_signup')->middleware('admin:admin');
+Route::post('/admin/page/signup/update', [AdminPageController::class, 'signup_update'])->name('admin.page_signup_update')->middleware('admin:admin');
+
+Route::get('/admin/page/signin', [AdminPageController::class, 'signin'])->name('admin.page_signin')->middleware('admin:admin');
+Route::post('/admin/page/signin/update', [AdminPageController::class, 'signin_update'])->name('admin.page_signin_update')->middleware('admin:admin');

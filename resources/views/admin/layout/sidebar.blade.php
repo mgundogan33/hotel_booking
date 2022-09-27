@@ -19,8 +19,13 @@
                 Request::is('admin/page/contact') ||
                 Request::is('admin/page/photo-galery') ||
                 Request::is('admin/page/video-galery') ||
-                Request::is('admin/page/faq')||
-                Request::is('admin/page/blog')
+                Request::is('admin/page/faq') ||
+                Request::is('admin/page/blog') ||
+                Request::is('admin/page/cart') ||
+                Request::is('admin/page/payment') ||
+                Request::is('admin/page/checkout') ||
+                Request::is('admin/page/signup') ||
+                Request::is('admin/page/signin')
                     ? 'active'
                     : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
@@ -48,6 +53,22 @@
                             href="{{ route('admin.page_faq') }}"><i class="fa fa-angle-right"></i>FAQ</a>
                     <li class="{{ Request::is('admin/page/blog') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.page_blog') }}"><i class="fa fa-angle-right"></i>Blog</a>
+                    </li>
+                    <li class="{{ Request::is('admin/page/cart') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_cart') }}"><i class="fa fa-angle-right"></i>Kart</a>
+                    </li>
+                    <li class="{{ Request::is('admin/page/checkout') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_checkout') }}"><i class="fa fa-angle-right"></i>Ödeme
+                            Kontrol</a>
+                    </li>
+                    <li class="{{ Request::is('admin/page/payment') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_payment') }}"><i class="fa fa-angle-right"></i>Ödeme</a>
+                    </li>
+                    <li class="{{ Request::is('admin/page/signup') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_signup') }}"><i class="fa fa-angle-right"></i>Kayıt Ol</a>
+                    </li>
+                    <li class="{{ Request::is('admin/page/signin') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_signin') }}"><i class="fa fa-angle-right"></i>Giriş Yap</a>
                     </li>
             </li>
         </ul>
