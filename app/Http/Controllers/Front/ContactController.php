@@ -30,7 +30,7 @@ class ContactController extends Controller
             return response()->json(['code' => 0, 'error_message' => $validator->errors()->toArray()]);
         } else {
             // Send email
-            $subject = 'Contact form email';
+            $subject = 'İletişim Formu';
             $message = 'E-posta Bilgileri= : <br>';
             $message .= '<br> İsim=' . $request->name;
             $message .= '<br> E-posta=' . $request->email;

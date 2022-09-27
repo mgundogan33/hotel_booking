@@ -51,10 +51,10 @@
                             </li>
                         @endif
                         @if ($global_page_data->signup_status == 1)
-                            <li class="menu"><a href="signup.html">{{$global_page_data->signup_heading}}</a></li>
+                            <li class="menu"><a href="signup.html">{{ $global_page_data->signup_heading }}</a></li>
                         @endif
                         @if ($global_page_data->signin_status == 1)
-                            <li class="menu"><a href="login.html">{{$global_page_data->signin_heading}}</a></li>
+                            <li class="menu"><a href="login.html">{{ $global_page_data->signin_heading }}</a></li>
                         @endif
 
                     </ul>
@@ -247,16 +247,19 @@
 
                 <div class="col-md-3">
                     <div class="item">
-                        <h2 class="heading">Newsletter</h2>
+                        <h2 class="heading">Haber Bülteni</h2>
                         <p>
-                            In order to get the latest news and other great items, please subscribe us here:
+                            Son haberleri almak için lütfen bize buradan abone olun:
                         </p>
-                        <form action="" method="post">
+                        <form action="{{ route('subscriber_send_email') }}" method="post"
+                            class="form_subscribe_ajax">
+                            @csrf
                             <div class="form-group">
-                                <input type="text" name="" class="form-control">
+                                <input type="text" name="email" class="form-control">
+                                <span class="text-danger error-text email_error"></span>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary" value="Subscribe Now">
+                                <input type="submit" class="btn btn-primary" value="Abone Ol ">
                             </div>
                         </form>
                     </div>
@@ -275,6 +278,54 @@
     </div>
 
     @include('front.layout.scripts_footer')
+
+    @if (session()->get('success'))
+        <script>
+            iziToast.success({
+                title: '',
+                position: 'topRight',
+                message: '{{ session()->get('success') }}',
+            });
+        </script>
+    @endif
+
+    <script>
+        (function($) {
+            $(".form_subscribe_ajax").on('submit', function(e) {
+                e.preventDefault();
+                $('#loader').show();
+                var form = this;
+                $.ajax({
+                    url: $(form).attr('action'),
+                    method: $(form).attr('method'),
+                    data: new FormData(form),
+                    processData: false,
+                    dataType: 'json',
+                    contentType: false,
+                    beforeSend: function() {
+                        $(form).find('span.error-text').text('');
+                    },
+                    success: function(data) {
+                        $('#loader').hide();
+                        if (data.code == 0) {
+                            $.each(data.error_message, function(prefix, val) {
+                                $(form).find('span.' + prefix + '_error').text(val[0]);
+                            });
+                        } else if (data.code == 1) {
+                            $(form)[0].reset();
+                            iziToast.success({
+                                title: '',
+                                position: 'topRight',
+                                message: data.success_message,
+                            });
+                        }
+
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+    <div id="loader"></div>
 
 </body>
 
