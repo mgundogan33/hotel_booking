@@ -12,6 +12,26 @@
             <li class="{{ Request::is('admin/home') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.home') }}"><i class="fa fa-hand-o-right"></i>
                     <span>Admin Panel</span></a></li>
+
+
+
+            <li
+                class="nav-item dropdown {{ Request::is('admin/amenity/view')  ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i
+                        class="fa fa-hand-o-right"></i><span>Aboneler</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('admin/amenity/view') ? 'active' : '' }}">
+                        <a class="nav-link"
+                            href="{{ route('admin.amenity_view') }}"><i class="fa fa-angle-right"></i>Kolaylıklar</a>
+                    </li>
+
+                    <li class=""><a class="nav-link" href=""><i class="fa fa-angle-right"></i>Odalar</a>
+                    </li>
+                </ul>
+            </li>
+
+
+
             <li
                 class="nav-item dropdown {{ Request::is('admin/page/about') ||
                 Request::is('admin/page/terms') ||
@@ -97,8 +117,8 @@
 
 
 
-            <li class="nav-item dropdown {{ Request::is('admin/subscriber/show') ||
-             Request::is('admin/subscriber/show') ? 'active' : '' }}">
+            <li
+                class="nav-item dropdown {{ Request::is('admin/subscriber/show') || Request::is('admin/subscriber/show') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
                         class="fa fa-hand-o-right"></i><span>Aboneler</span></a>
                 <ul class="dropdown-menu">
@@ -106,12 +126,11 @@
                             href="{{ route('admin.subscriber_show') }}"><i class="fa fa-angle-right"></i>Aboneler</a>
                     </li>
                     <li class="{{ Request::is('admin/subscriber/send-email') ? 'active' : '' }}"><a class="nav-link"
-                        href="{{ route('admin.subscriber_send_email') }}"><i class="fa fa-angle-right"></i>E-posta Gönder</a>
-                </li>
+                            href="{{ route('admin.subscriber_send_email') }}"><i
+                                class="fa fa-angle-right"></i>E-posta Gönder</a>
+                    </li>
                 </ul>
             </li>
-
-
         </ul>
     </aside>
 </div>

@@ -50,4 +50,5 @@ class AdminFaqController extends Controller
         $faq_data->delete();
         return redirect()->back()->with('error', 'Başarıyla Silindi');
     }
+
 }

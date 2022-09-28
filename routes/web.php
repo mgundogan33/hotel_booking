@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminAmenityController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\BlogController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\Admin\AdminFeatureController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminSubscriberController;
 use App\Http\Controllers\Admin\AdminTestmonialController;
+use App\Http\Controllers\MemoController;
 
 /* Front */
 
@@ -145,3 +147,11 @@ Route::post('/admin/page/signin/update', [AdminPageController::class, 'signin_up
 Route::get('/admin/subscriber/show', [AdminSubscriberController::class, 'show'])->name('admin.subscriber_show')->middleware('admin:admin');
 Route::get('/admin/subscriber/send-email', [AdminSubscriberController::class, 'send_email'])->name('admin.subscriber_send_email')->middleware('admin:admin');
 Route::post('/admin/subscriber/send-email-submit', [AdminSubscriberController::class, 'send_email_submit'])->name('admin.subscriber_send_email_submit')->middleware('admin:admin');
+
+Route::get('/admin/amenity/view', [AdminAmenityController::class, 'index'])->name('admin.amenity_view')->middleware('admin:admin');
+Route::get('/admin/amenity/add', [AdminAmenityController::class, 'add'])->name('admin.amenity_add')->middleware('admin:admin');
+Route::post('/admin/amenity/store', [AdminAmenityController::class, 'store'])->name('admin.amenity_store')->middleware('admin:admin');
+Route::get('/admin/amenity/edit/{id}', [AdminAmenityController::class, 'edit'])->name('admin.amenity_edit')->middleware('admin:admin');
+Route::post('/admin/amenity/update/{id}', [AdminAmenityController::class, 'update'])->name('admin.amenity_update')->middleware('admin:admin');
+Route::get('/admin/amenity/delete/{id}', [AdminAmenityController::class, 'delete'])->name('admin.amenity_delete')->middleware('admin:admin');
+
