@@ -70,31 +70,47 @@
                     <li class="{{ Request::is('admin/page/signin') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.page_signin') }}"><i class="fa fa-angle-right"></i>Giriş Yap</a>
                     </li>
+                </ul>
             </li>
-        </ul>
-        </li>
 
-        <li class="{{ Request::is('admin/slide/*') ? 'active' : '' }}"><a class="nav-link"
-                href="{{ route('admin.slide_view') }}"><i class="fa fa-hand-o-right"></i>
-                <span>Slayt</span></a></li>
-        <li class="{{ Request::is('admin/feature/*') ? 'active' : '' }}"><a class="nav-link"
-                href="{{ route('admin.feature_view') }}"><i class="fa fa-hand-o-right"></i>
-                <span>Icon</span></a></li>
-        <li class="{{ Request::is('admin/testimonial/*') ? 'active' : '' }}"><a class="nav-link"
-                href="{{ route('admin.testimonial_view') }}"><i class="fa fa-hand-o-right"></i>
-                <span>Referans</span></a></li>
-        <li class="{{ Request::is('admin/post/*') ? 'active' : '' }}"><a class="nav-link"
-                href="{{ route('admin.post_view') }}"><i class="fa fa-hand-o-right"></i>
-                <span>Blog</span></a></li>
-        <li class="{{ Request::is('admin/photo/*') ? 'active' : '' }}"><a class="nav-link"
-                href="{{ route('admin.photo_view') }}"><i class="fa fa-hand-o-right"></i>
-                <span>Photo Galeri</span></a></li>
-        <li class="{{ Request::is('admin/video/*') ? 'active' : '' }}"><a class="nav-link"
-                href="{{ route('admin.video_view') }}"><i class="fa fa-hand-o-right"></i>
-                <span>Video Galeri</span></a></li>
-        <li class="{{ Request::is('admin/faq/*') ? 'active' : '' }}"><a class="nav-link"
-                href="{{ route('admin.faq_view') }}"><i class="fa fa-hand-o-right"></i>
-                <span>FAQs</span></a></li>
+            <li class="{{ Request::is('admin/slide/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.slide_view') }}"><i class="fa fa-hand-o-right"></i>
+                    <span>Slayt</span></a></li>
+            <li class="{{ Request::is('admin/feature/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.feature_view') }}"><i class="fa fa-hand-o-right"></i>
+                    <span>Icon</span></a></li>
+            <li class="{{ Request::is('admin/testimonial/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.testimonial_view') }}"><i class="fa fa-hand-o-right"></i>
+                    <span>Referans</span></a></li>
+            <li class="{{ Request::is('admin/post/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.post_view') }}"><i class="fa fa-hand-o-right"></i>
+                    <span>Blog</span></a></li>
+            <li class="{{ Request::is('admin/photo/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.photo_view') }}"><i class="fa fa-hand-o-right"></i>
+                    <span>Photo Galeri</span></a></li>
+            <li class="{{ Request::is('admin/video/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.video_view') }}"><i class="fa fa-hand-o-right"></i>
+                    <span>Video Galeri</span></a></li>
+            <li class="{{ Request::is('admin/faq/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.faq_view') }}"><i class="fa fa-hand-o-right"></i>
+                    <span>FAQs</span></a></li>
+
+
+
+            <li class="nav-item dropdown {{ Request::is('admin/subscriber/show') ||
+             Request::is('admin/subscriber/show') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i
+                        class="fa fa-hand-o-right"></i><span>Aboneler</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('admin/subscriber/show') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.subscriber_show') }}"><i class="fa fa-angle-right"></i>Aboneler</a>
+                    </li>
+                    <li class="{{ Request::is('admin/subscriber/send-email') ? 'active' : '' }}"><a class="nav-link"
+                        href="{{ route('admin.subscriber_send_email') }}"><i class="fa fa-angle-right"></i>E-posta Gönder</a>
+                </li>
+                </ul>
+            </li>
+
 
         </ul>
     </aside>
