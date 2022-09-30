@@ -15,17 +15,17 @@
 
 
 
-            <li
-                class="nav-item dropdown {{ Request::is('admin/amenity/view')  ? 'active' : '' }}">
+            <li class="nav-item dropdown {{ Request::is('admin/amenity/view') ||
+            Request::is('admin/amenity/view') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
                         class="fa fa-hand-o-right"></i><span>Aboneler</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('admin/amenity/view') ? 'active' : '' }}">
-                        <a class="nav-link"
-                            href="{{ route('admin.amenity_view') }}"><i class="fa fa-angle-right"></i>Kolaylıklar</a>
+                        <a class="nav-link" href="{{ route('admin.amenity_view') }}"><i
+                                class="fa fa-angle-right"></i>Otel Odası Olanakları</a>
                     </li>
-
-                    <li class=""><a class="nav-link" href=""><i class="fa fa-angle-right"></i>Odalar</a>
+                    <li class="{{ Request::is('admin/room/view') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.room_view') }}"><i class="fa fa-angle-right"></i>Odalar</a>
                     </li>
                 </ul>
             </li>

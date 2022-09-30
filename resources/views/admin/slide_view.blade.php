@@ -23,7 +23,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($slides as $row)
-                
+
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
