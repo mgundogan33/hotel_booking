@@ -99,7 +99,7 @@
                                                                     $arr = explode(',', $row->amenities);
                                                                     for ($j = 0; $j < count($arr); $j++) {
                                                                         $temp_row = \App\Models\Amenity::where('id', $arr[$j])->first();
-                                                                        echo $temp_row->name . '<br>';
+                                                                        echo !empty($temp_row->name)? $temp_row->name: ''  . '<br>';
                                                                     }
                                                                 @endphp
                                                             </div>

@@ -79,19 +79,21 @@ class AdminRoomController extends Controller
     {
         $obj = Room::where('id', $id)->first();
 
+
         $amenities = '';
         $i = 0;
         if (isset($request->arr_amenities)) {
+            $sayi = count($request->arr_amenities);
             foreach ($request->arr_amenities as $item) {
+                $virgul = ($item == $sayi) ? '' : ',';
                 if ($i == 0) {
-                    $amenities .= $item;
+                    $amenities .= $item . $virgul;
                 } else {
-                    $amenities .= $item;
+                    $amenities .= $item . $virgul;
                 }
                 $i++;
             }
         }
-
         $request->validate([
             'name' => 'required',
             'description' => 'required',

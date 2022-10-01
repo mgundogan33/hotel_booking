@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MemoController;
 use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\RoomController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\PhotoController;
 use App\Http\Controllers\Front\TermsController;
@@ -42,6 +42,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/send-email', [ContactController::class, 'send_email'])->name('contact_send_email');
 Route::post('/subscriber/send-email', [SubscriberController::class, 'send_email'])->name('subscriber_send_email');
 Route::get('/subscriber/verify/{email}/{token}', [SubscriberController::class, 'verify'])->name('subscriber_verify');
+Route::get('/room/{id}', [RoomController::class, 'single_room'])->name('room_detail');
 
 
 

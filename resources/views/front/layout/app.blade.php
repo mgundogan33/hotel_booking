@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <meta name="description" content="">
-    <title>Hotel Website</title>
+    <title>Otel Website</title>
 
     <link rel="icon" type="image/png" href="{{ asset('uploads/favicon.png') }}">
 
@@ -93,23 +93,14 @@
                             @endif
 
                             <li class="nav-item">
-                                <a href="javascript:void;" class="nav-link dropdown-toggle">Room & Suite</a>
+                                <a href="javascript:void;" class="nav-link dropdown-toggle">Oda & Süit</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="room-detail.html" class="nav-link">Regular Couple Bed</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="room-detail.html" class="nav-link">Delux Couple Bed</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="room-detail.html" class="nav-link">Regular Double Bed</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="room-detail.html" class="nav-link">Delux Double Bed</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="room-detail.html" class="nav-link">Premium Suite</a>
-                                    </li>
+                                    @foreach ($global_room_data as $item)
+                                        <li class="nav-item">
+                                            <a href="{{ route('room_detail', $item->id) }}"
+                                                class="nav-link">{{ $item->name }}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </li>
 
