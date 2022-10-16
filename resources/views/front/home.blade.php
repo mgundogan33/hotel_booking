@@ -100,103 +100,108 @@
             </div>
             <div class="row">
                 @foreach ($room_all as $item)
-                    <div class="col-md-3">
-                        <div class="inner">
-                            <div class="photo">
-                                <img src="{{ asset('uploads/' . $item->featured_photo) }}" alt="">
+                    @if ($loop->iteration > 4)
+                    @break
+                @endif
+
+                <div class="col-md-3">
+                    <div class="inner">
+                        <div class="photo">
+                            <img src="{{ asset('uploads/' . $item->featured_photo) }}" alt="">
+                        </div>
+                        <div class="text">
+                            <h2><a href="{{ route('room_detail', $item->id) }}">{{ $item->name }}</a></h2>
+                            <div class="price">
+                                $ {{ $item->price }} / Gecelik
                             </div>
-                            <div class="text">
-                                <h2><a href="{{route('room_detail',$item->id)}}">{{ $item->name }}</a></h2>
-                                <div class="price">
-                                    $ {{ $item->price }} / Gecelik
-                                </div>
-                                <div class="button">
-                                    <a href="{{route('room_detail',$item->id)}}" class="btn btn-primary">Ayrıntıları Gör</a>
-                                </div>
+                            <div class="button">
+                                <a href="{{ route('room_detail', $item->id) }}" class="btn btn-primary">Ayrıntıları
+                                    Gör</a>
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="big-button">
-                        <a href="" class="btn btn-primary">Tüm Odaları Gör</a>
-                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="big-button">
+                    <a href="{{ route('room') }}" class="btn btn-primary">Tüm Odaları Gör</a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 
-    <div class="testimonial" style="background-image: url(uploads/slide2.jpg)">
-        <div class="bg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="main-header">Our Happy Clients</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="testimonial-carousel owl-carousel">
-
-                        @foreach ($testimonial_all as $item)
-                            <div class="item">
-                                <div class="photo">
-                                    <img src="{{ asset('uploads/' . $item->photo) }}" alt="">
-                                </div>
-                                <div class="text">
-                                    <h4>{{ $item->name }}</h4>
-                                    <p>{{ $item->designation }}</p>
-                                </div>
-                                <div class="description">
-                                    <p>
-                                        {!! $item->comment !!}
-                                    </p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+<div class="testimonial" style="background-image: url(uploads/slide2.jpg)">
+    <div class="bg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="main-header">Our Happy Clients</h2>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="testimonial-carousel owl-carousel">
 
-
-
-
-    <div class="blog-item">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="main-header">Son Gönderiler
-                </div>
-            </div>
-            <div class="row">
-                @foreach ($post_all as $item)
-                    <div class="col-md-4">
-                        <div class="inner">
+                    @foreach ($testimonial_all as $item)
+                        <div class="item">
                             <div class="photo">
                                 <img src="{{ asset('uploads/' . $item->photo) }}" alt="">
                             </div>
                             <div class="text">
-                                <h2><a href="{{ route('post', $item->id) }}">{{ $item->heading }}</a></h2>
-                                <div class="short-des">
-                                    <p>
-                                        {!! $item->short_content !!}
-                                    </p>
-                                </div>
-                                <div class="button">
-                                    <a href="{{ route('post', $item->id) }}" class="btn btn-primary">Devamını Oku</a>
-                                </div>
+                                <h4>{{ $item->name }}</h4>
+                                <p>{{ $item->designation }}</p>
+                            </div>
+                            <div class="description">
+                                <p>
+                                    {!! $item->comment !!}
+                                </p>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+<div class="blog-item">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="main-header">Son Gönderiler
+            </div>
+        </div>
+        <div class="row">
+            @foreach ($post_all as $item)
+                <div class="col-md-4">
+                    <div class="inner">
+                        <div class="photo">
+                            <img src="{{ asset('uploads/' . $item->photo) }}" alt="">
+                        </div>
+                        <div class="text">
+                            <h2><a href="{{ route('post', $item->id) }}">{{ $item->heading }}</a></h2>
+                            <div class="short-des">
+                                <p>
+                                    {!! $item->short_content !!}
+                                </p>
+                            </div>
+                            <div class="button">
+                                <a href="{{ route('post', $item->id) }}" class="btn btn-primary">Devamını Oku</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+        </div>
+    </div>
+</div>
 @endsection

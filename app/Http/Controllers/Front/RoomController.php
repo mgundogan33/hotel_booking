@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
-    // public function index()
-    // {
-    //     $room_all = Room::orderBy('id', 'desc')->paginate(9);
-    //     return view('front.blog', compact('room_all'));
-    // }
+    public function index()
+    {
+        $room_all = Room::paginate(12);
+        return view('front.room', compact('room_all'));
+    }
     public function single_room($id)
     {
         $single_room_data = Room::with('rRoomPhoto')->where('id', $id)->first();

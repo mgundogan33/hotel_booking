@@ -15,8 +15,8 @@
 
 
 
-            <li class="nav-item dropdown {{ Request::is('admin/amenity/view') ||
-            Request::is('admin/amenity/view') ? 'active' : '' }}">
+            <li
+                class="nav-item dropdown {{ Request::is('admin/amenity/view') || Request::is('admin/amenity/view') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
                         class="fa fa-hand-o-right"></i><span>Aboneler</span></a>
                 <ul class="dropdown-menu">
@@ -41,6 +41,7 @@
                 Request::is('admin/page/video-galery') ||
                 Request::is('admin/page/faq') ||
                 Request::is('admin/page/blog') ||
+                Request::is('admin/page/room') ||
                 Request::is('admin/page/cart') ||
                 Request::is('admin/page/payment') ||
                 Request::is('admin/page/checkout') ||
@@ -73,6 +74,9 @@
                             href="{{ route('admin.page_faq') }}"><i class="fa fa-angle-right"></i>FAQ</a>
                     <li class="{{ Request::is('admin/page/blog') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.page_blog') }}"><i class="fa fa-angle-right"></i>Blog</a>
+                    </li>
+                    <li class="{{ Request::is('admin/page/room') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_room') }}"><i class="fa fa-angle-right"></i>Odalar</a>
                     </li>
                     <li class="{{ Request::is('admin/page/cart') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.page_cart') }}"><i class="fa fa-angle-right"></i>Kart</a>
