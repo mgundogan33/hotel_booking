@@ -51,10 +51,14 @@
                             </li>
                         @endif
                         @if ($global_page_data->signup_status == 1)
-                            <li class="menu"><a href="signup.html">{{ $global_page_data->signup_heading }}</a></li>
+                            <li class="menu"><a
+                                    href="{{ route('customer.signup') }}">{{ $global_page_data->signup_heading }}</a>
+                            </li>
                         @endif
                         @if ($global_page_data->signin_status == 1)
-                            <li class="menu"><a href="login.html">{{ $global_page_data->signin_heading }}</a></li>
+                            <li class="menu"><a
+                                    href="{{ route('customer.login') }}">{{ $global_page_data->signin_heading }}</a>
+                            </li>
                         @endif
 
                     </ul>

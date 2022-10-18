@@ -41,10 +41,10 @@ return new class extends Migration
             $table->text('checkout_heading');
             $table->integer('checkout_status');
             $table->text('payment_heading');
-            $table->integer('signup_heading');
-            $table->text('signup_status');
-            $table->integer('signin_heading');
-            $table->text('signin_status');
+            $table->text('signup_heading');
+            $table->integer('signup_status');
+            $table->text('signin_heading');
+            $table->integer('signin_status');
             $table->timestamps();
         });
     }
