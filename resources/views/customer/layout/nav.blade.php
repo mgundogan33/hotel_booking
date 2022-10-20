@@ -14,7 +14,11 @@
         <li class="dropdown">
             @auth
                 <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                    <img src="{{ asset('uploads/' . Auth::guard('customer')->user()->photo) }}" alt="image">
+                    @if (Auth::guard('customer')->user()->photo == '')
+                        <img src="{{ asset('uploads/default.png') }}" alt="image">
+                    @else
+                        <img src="{{ asset('uploads/' . Auth::guard('customer')->user()->photo) }}" alt="image">
+                    @endif
                     <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('customer')->user()->name }}</div>
                 </a>
             @endauth

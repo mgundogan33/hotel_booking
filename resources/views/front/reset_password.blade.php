@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>{{ $global_page_data->signin_heading }}</h2>
+                    <h2>{{ $global_page_data->reset_password_heading }}</h2>
                 </div>
             </div>
         </div>
@@ -15,17 +15,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-4">
-
-                    <form action="{{route('customer.login_submit')}}" method="POST">
+                    <form action="{{ route('customer.reset_password_submit') }}" method="POST">
                         @csrf
+                        <input type="hidden" name="token" value="{{ $token }}">
+                        <input type="hidden" name="email" value="{{ $email }}">
                         <div class="login-form">
-                            <div class="mb-3">
-                                <label for="" class="form-label">E-posta</label>
-                                <input type="text" class="form-control" name="email">
-                                @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
-                            </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Şifre</label>
                                 <input type="password" class="form-control" name="password">
@@ -34,15 +28,17 @@
                                 @endif
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-primary bg-website">Giriş</button>
-                                <a href="{{route('customer.forget_password')}}" class="primary-color">Şifremi Unuttum ?</a>
+                                <label for="" class="form-label">Şifre Yeniden</label>
+                                <input type="password" class="form-control" name="retype_password">
+                                @if ($errors->has('retype_password'))
+                                    <span class="text-danger">{{ $errors->first('retype_password') }}</span>
+                                @endif
                             </div>
                             <div class="mb-3">
-                                <a href="{{ route('customer.signup') }}" class="primary-color">Kayıt Ol</a>
+                                <button type="submit" class="btn btn-primary bg-website">Güncelle</button>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

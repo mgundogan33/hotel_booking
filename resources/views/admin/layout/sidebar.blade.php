@@ -13,12 +13,10 @@
                     href="{{ route('admin.home') }}"><i class="fa fa-hand-o-right"></i>
                     <span>Admin Panel</span></a></li>
 
-
-
             <li
                 class="nav-item dropdown {{ Request::is('admin/amenity/view') || Request::is('admin/amenity/view') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
-                        class="fa fa-hand-o-right"></i><span>Aboneler</span></a>
+                        class="fa fa-hand-o-right"></i><span>Otel Olanakları</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('admin/amenity/view') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.amenity_view') }}"><i
@@ -46,11 +44,13 @@
                 Request::is('admin/page/payment') ||
                 Request::is('admin/page/checkout') ||
                 Request::is('admin/page/signup') ||
-                Request::is('admin/page/signin')
+                Request::is('admin/page/signin')||
+                Request::is('admin/page/forget_password')||
+                Request::is('admin/page/reset_password')
                     ? 'active'
                     : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i
-                        class="fa fa-hand-o-right"></i><span>Sayfalar</span></a>
+                        class="fa fa-hand-o-right"></i><span>Sayfa Başlıkları</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('admin/page/about') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.page_about') }}"><i class="fa fa-angle-right"></i>Hakkımda</a></li>
@@ -93,6 +93,12 @@
                     </li>
                     <li class="{{ Request::is('admin/page/signin') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.page_signin') }}"><i class="fa fa-angle-right"></i>Giriş Yap</a>
+                    </li>
+                    <li class="{{ Request::is('admin/page/forget_password') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_forget_password') }}"><i class="fa fa-angle-right"></i>Şifre İşlemleri</a>
+                    </li>
+                    <li class="{{ Request::is('admin/page/reset_password') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.page_reset_password') }}"><i class="fa fa-angle-right"></i>Şifre Yenile</a>
                     </li>
                 </ul>
             </li>

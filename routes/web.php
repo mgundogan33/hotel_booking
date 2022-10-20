@@ -60,12 +60,16 @@ Route::post('/admin/reset-password-submit/{token}/{email}', [AdminLoginControlle
 
 /* Customer */
 Route::get('/login', [CustomerAuthController::class, 'login'])->name('customer.login');
-Route::post('/customer/login_submit', [CustomerAuthController::class, 'login_submit'])->name('customer.login_submit');
+Route::post('/customer/login-submit', [CustomerAuthController::class, 'login_submit'])->name('customer.login_submit');
 Route::get('/customer/logout', [CustomerAuthController::class, 'logout'])->name('customer.logout');
 Route::get('/signup', [CustomerAuthController::class, 'signup'])->name('customer.signup');
 Route::post('/signup-submit', [CustomerAuthController::class, 'signup_submit'])->name('customer.signup_submit');
 Route::get('/signup-verify/{email}/{token}', [CustomerAuthController::class, 'signup_verify'])->name('customer.signup_verify');
 
+Route::get('/forget-password', [CustomerAuthController::class, 'forget_password'])->name('customer.forget_password');
+Route::post('/forget-password-submit', [CustomerAuthController::class, 'forget_password_submit'])->name('customer.forget_password_submit');
+Route::get('/reset-password/{token}/{email}', [CustomerAuthController::class, 'reset_password'])->name('customer.reset_password');
+Route::post('/reset-password-submit', [CustomerAuthController::class, 'reset_password_submit'])->name('customer.reset_password_submit');
 
 /* Customer  Middleware*/
 Route::group(['middleware' => ['customer:customer']], function () {
@@ -172,6 +176,12 @@ Route::group(['middleware' => ['admin:admin']], function () {
 
     Route::get('/admin/page/signin', [AdminPageController::class, 'signin'])->name('admin.page_signin');
     Route::post('/admin/page/signin/update', [AdminPageController::class, 'signin_update'])->name('admin.page_signin_update');
+
+    Route::get('/admin/page/forget_password', [AdminPageController::class, 'forget_password'])->name('admin.page_forget_password');
+    Route::post('/admin/page/forget_password/update', [AdminPageController::class, 'forget_password_update'])->name('admin.page_forget_password_update');
+
+    Route::get('/admin/page/reset_password', [AdminPageController::class, 'reset_password'])->name('admin.page_reset_password');
+    Route::post('/admin/page/reset_password/update', [AdminPageController::class, 'reset_password_update'])->name('admin.page_reset_password_update');
 
     Route::get('/admin/subscriber/show', [AdminSubscriberController::class, 'show'])->name('admin.subscriber_show');
     Route::get('/admin/subscriber/send-email', [AdminSubscriberController::class, 'send_email'])->name('admin.subscriber_send_email');
