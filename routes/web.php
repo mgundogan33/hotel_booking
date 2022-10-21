@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\AdminSubscriberController;
 use App\Http\Controllers\Admin\AdminTestmonialController;
 use App\Http\Controllers\Customer\CustomerAuthController;
 use App\Http\Controllers\Customer\CustomerHomeController;
+use App\Http\Controllers\Customer\CustomerProfileController;
 
 /* Front */
 
